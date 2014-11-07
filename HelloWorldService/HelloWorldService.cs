@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Couchbase;
 using Couchbase.Configuration;
-using ProtoBuf;
 
 namespace HelloWorldService
 {
