@@ -13,22 +13,22 @@ namespace HelloWorldService
     {
         public string GetMessage(string name)
         {
-            var config = new CouchbaseClientConfiguration();
-            config.Urls.Add(new Uri("http://localhost:8091/pools/"));
-            config.Bucket = "default";
+            //var config = new CouchbaseClientConfiguration();
+            //config.Urls.Add(new Uri("http://localhost:8091/pools/"));
+            //config.Bucket = "default";
 
-            var client = new CouchbaseClient(config);
-            //client.ExecuteStore(Enyim.Caching.Memcached.StoreMode.Set, "test");
-            var itemA = client.Get<string>("test");
-            return itemA;
+            //var client = new CouchbaseClient(config);
+            ////client.ExecuteStore(Enyim.Caching.Memcached.StoreMode.Set, "test");
+            //var itemA = client.Get<string>("test");
+            //return itemA;
 
             //return "insert ok";
 
-            //using (var context = new testEntities())
-            //{
-            //    var query = from p in context.Set<user>() where p.id == "1" select p;
-            //    return query.ToList().ElementAt(0).name;
-            //}
+            using (var context = new testEntities())
+            {
+                var query = from p in context.Set<user>() where p.id == "111" select p;
+                return query.ToList().ElementAt(0).name;
+            }
 
             //using (var context = new testEntities())
             //{

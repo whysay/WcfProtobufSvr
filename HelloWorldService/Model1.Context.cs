@@ -12,8 +12,6 @@ namespace HelloWorldService
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Collections.Generic;
-    using System.Linq;
     
     public partial class testEntities : DbContext
     {
@@ -28,10 +26,5 @@ namespace HelloWorldService
         }
     
         public DbSet<user> user { get; set; }
-
-        public string GetTmpStr()
-        {
-            return "임시스트링반환";
-        }
     }
 }
