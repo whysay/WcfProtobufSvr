@@ -1,0 +1,11 @@
+C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\2.0
+
+System.Runtime.Serialization.dll
+System.Security.dll
+System.ServiceModel.dll
+
+
+HelloWorldServiceClient m_client;
+        //m_client = new HelloWorldServiceClient(new BasicHttpBinding(), new EndpointAddress(@"http://localhost:1054/HostDevServer/HelloWorldService.svc?singleWsdl"));
+        //var log = m_client.GetMessage("dfj");
+        //Debug.Log(log);
