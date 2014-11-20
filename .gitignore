@@ -35,6 +35,8 @@ Icon
 .Trashes
 
 Debug/
+bin/
+obj/
 
 # Directories potentially created on remote AFP share
 .AppleDB

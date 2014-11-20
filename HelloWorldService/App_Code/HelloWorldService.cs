@@ -3,11 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Couchbase;
-using Couchbase.Configuration;
+using System.ServiceModel;
+using System.ServiceProcess;
+//using Couchbase;
+//using Couchbase.Configuration;
 
-namespace HelloWorldService
+namespace HelloWorld
 {
+    static class Program
+    {
+        static void Main()
+        {
+#if TRACE
+            ServiceHost Host = new ServiceHost(typeof(HelloWorldService));
+            Host.Open();
+            Console.WriteLine(String.Format("Wcf Service is start"));
+            Console.ReadLine();
+            Host.Close();
+#else
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new Service1()
+            };
+            ServiceBase.Run(ServicesToRun);
+#endif
+        }
+    }
+
     public class HelloWorldService : IHelloWorldService 
     {
         public string GetMessage(string name)
@@ -21,13 +44,13 @@ namespace HelloWorldService
             //var itemA = client.Get<string>("test");
             //return itemA;
 
-            //return "insert ok";
+            return "insert ok";
 
-            using (var context = new testEntities())
-            {
-                var query = from p in context.Set<user>() where p.id == "111" select p;
-                return query.ToList().ElementAt(0).name;
-            }
+            //using (var context = new testEntities())
+            //{
+            //    var query = from p in context.Set<user>() where p.id == "111" select p;
+            //    return query.ToList().ElementAt(0).name;
+            //}
 
             //using (var context = new testEntities())
             //{
