@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.ServiceProcess;
 //using Couchbase;
 //using Couchbase.Configuration;
@@ -33,6 +34,8 @@ namespace HelloWorld
 
     public class HelloWorldService : IHelloWorldService 
     {
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+                    UriTemplate = "data/{name}")]
         public string GetMessage(string name)
         {
             //var config = new CouchbaseClientConfiguration();
@@ -61,6 +64,8 @@ namespace HelloWorld
             //}
         }
 
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+                    UriTemplate = "data2/{name}")]
         public testContact GetTestContact(string name)
         {
             testContact aa = new testContact();
